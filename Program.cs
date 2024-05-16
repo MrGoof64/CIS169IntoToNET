@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CIS169IntroToNET.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,8 @@ builder.Services.AddDbContext<CIS169IntroToNETContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("CIS169IntroToNETContext") ?? throw new InvalidOperationException("Connection string 'CIS169IntroToNETContext' not found.")));
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
